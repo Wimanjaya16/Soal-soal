@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hadiah Spesial</title>
+    <style>
+        body {
+            background-color: #55189f;
+            margin: 0;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #0e0909;
+            font-family: 'Bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .congratulations {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .heart {
+            color: red;
+            font-size: 5rem;
+            animation: beat 3s infinite;
+        }
+        @keyframes beat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="congratulations">Selamat, Kamu Berhasil!</div>
+        <div>I loveee youuu <span class="heart">❤️</span></div>
+    </div>
+</body>
+</html>

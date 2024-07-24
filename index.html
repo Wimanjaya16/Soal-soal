@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #760e76 0%, #0d0908 99%, #6f0bb7 100%);
+            font-family: 'bold', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .message {
+            font-size: 2rem;
+            color: #ff6f61;
+            opacity: 0;
+            transition: opacity 2s;
+            margin-bottom: 20px;
+        }
+        .heart {
+            color: red;
+            font-size: 5rem;
+            animation: beat 3s infinite;
+        }
+        .question {
+            font-size: 1.5rem;
+            color: #f6f6f6;
+            margin-bottom: 10px;
+        }
+        .answer {
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .feedback {
+            font-size: 1rem;
+            color: green;
+            margin-bottom: 10px;
+            display: none;
+        }
+        .wrong-feedback {
+            color: red;
+        }
+        .submit-btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #ff6f61;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #ff3b2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="question-section">
+        <div class="question">1. Sebutkan kios yang ada di depan Widyaloka?</div>
+        <input type="text" class="answer" id="answer1">
+        <div id="feedback1" class="feedback"></div>
+        
+        <div class="question">2. Sebutkan nama jalan kampus Widyaloka?</div>
+        <input type="text" class="answer" id="answer2">
+        <div id="feedback2" class="feedback"></div>
+        
+        <div class="question">3. Teka teki habis TK.....?</div>
+        <input type="text" class="answer" id="answer3">
+        <div id="feedback3" class="feedback"></div>
+        
+        <div class="question">4. Apa yang dilihat semakin lama semakin menghindar?</div>
+        <input type="text" class="answer" id="answer4">
+        <div id="feedback4" class="feedback"></div>
+        
+        <div class="question">5. Apa yang mengikutimu setiap hari tapi saat gelap dia tidak mengikutimu?</div>
+        <input type="text" class="answer" id="answer5">
+        <div id="feedback5" class="feedback"></div>
+        
+        <button class="submit-btn" onclick="checkAnswers()">Submit</button>
+    </div>
+
+    <div class="message" id="finalMessage">
+        I loveee youuu <span class="heart">❤️</span>
+    </div>
+
+    <script>
+        document.getElementById('finalMessage').style.display = 'none';
+
+        function checkAnswer(inputId, correctAnswer, feedbackId) {
+            var answer = document.getElementById(inputId).value.toLowerCase();
+            var feedback = document.getElementById(feedbackId);
+            if (answer === correctAnswer) {
+                feedback.textContent = "Jawaban benar!";
+                feedback.style.color = "green";
+                feedback.style.display = "block";
+            } else {
+                feedback.textContent = "Jawaban salah, coba lagi!";
+                feedback.style.color = "red";
+                feedback.style.display = "block";
+            }
+        }
+
+        function checkAnswers() {
+            checkAnswer('answer1', 'kios biru', 'feedback1');
+            checkAnswer('answer2', 'jalan ahmad yani', 'feedback2');
+            checkAnswer('answer3', 'sd', 'feedback3');
+            checkAnswer('answer4', 'telinga', 'feedback4');
+            checkAnswer('answer5', 'bayangan', 'feedback5');
+            
+            var allCorrect = document.getElementById('feedback1').style.color === "green" &&
+                             document.getElementById('feedback2').style.color === "green" &&
+                             document.getElementById('feedback3').style.color === "green" &&
+                             document.getElementById('feedback4').style.color === "green" &&
+                             document.getElementById('feedback5').style.color === "green";
+            
+            if (allCorrect) {
+                document.getElementById('finalMessage').style.display = 'block';
+                setTimeout(function() {
+                    document.getElementById('finalMessage').style.opacity = 1;
+                    window.location.href = "halaman_kedua.html";
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
